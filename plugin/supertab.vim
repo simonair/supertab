@@ -801,14 +801,7 @@ endfunction " }}}
   endfunction
 
   if g:SuperTabCrMapping
-    let expr_map = 0
-    try
-      let map_dict = maparg('<cr>', 'i', 0, 1)
-      let expr_map = map_dict.expr
-    catch
-      let expr_map = maparg('<cr>', 'i') =~? '\<cr>'
-    endtry
-
+    let expr_map = maparg('<cr>', 'i') =~? '\<cr>'
     if expr_map
       " Not compatible w/ expr mappings. This is most likely a user mapping,
       " typically with the same functionality anyways.
